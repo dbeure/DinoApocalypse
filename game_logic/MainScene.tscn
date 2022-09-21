@@ -1,0 +1,157 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://MainScene.gd" type="Script" id=1]
+[ext_resource path="res://Tile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://MainPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Comets.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GameOver.tscn" type="PackedScene" id=5]
+
+[sub_resource type="Curve2D" id=1]
+bake_interval = 10.0
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, -2672.68, 31.0904, 0, 0, 0, 0, 3197.22, 29.0845 )
+}
+
+[node name="MainScene" type="Node2D"]
+script = ExtResource( 1 )
+comets_scene = ExtResource( 4 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = -10616.0
+margin_top = -104.0
+margin_right = -10512.0
+margin_bottom = -64.0
+rect_scale = Vector2( 117.84, 20.8 )
+color = Color( 0.129412, 0.203922, 0.364706, 1 )
+
+[node name="MainPlayer" parent="." instance=ExtResource( 3 )]
+position = Vector2( 943, 163 )
+
+[node name="Tile" parent="." instance=ExtResource( 2 )]
+position = Vector2( 848, 468 )
+
+[node name="Tile13" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -480, 0 )
+
+[node name="Tile5" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -168, -42 )
+
+[node name="Tile4" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -126, -42 )
+
+[node name="Tile6" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( 42, 0 )
+
+[node name="Tile2" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -42, 0 )
+
+[node name="Tile3" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -84, 0 )
+
+[node name="Tile7" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( 84, 0 )
+
+[node name="Tile8" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( 126, 0 )
+
+[node name="Tile9" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( 168, 0 )
+
+[node name="Tile10" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -210, -84 )
+
+[node name="Tile11" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -438, -42 )
+
+[node name="Tile12" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -396, -84 )
+
+[node name="Tile14" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -522, 0 )
+
+[node name="Tile15" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -799, 3 )
+
+[node name="Tile" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -967, -39 )
+
+[node name="Tile16" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -925, 3 )
+
+[node name="Tile17" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -883, 3 )
+
+[node name="Tile18" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -841, 3 )
+
+[node name="Tile19" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -757, 3 )
+
+[node name="Tile20" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -563, 0 )
+
+[node name="Tile21" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1009, -81 )
+
+[node name="Tile22" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1051, -81 )
+
+[node name="Tile23" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1093, -123 )
+
+[node name="Tile24" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1135, -123 )
+
+[node name="Tile25" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1177, -165 )
+
+[node name="Tile26" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1219, -207 )
+
+[node name="Tile27" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1261, -165 )
+
+[node name="Tile28" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1303, -165 )
+
+[node name="Tile29" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1345, -123 )
+
+[node name="Tile30" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1387, -81 )
+
+[node name="Tile31" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1429, -39 )
+
+[node name="Tile32" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1471, 3 )
+
+[node name="Tile33" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1513, 3 )
+
+[node name="Tile34" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1637, 3 )
+
+[node name="Tile35" parent="Tile" instance=ExtResource( 2 )]
+position = Vector2( -1679, 3 )
+
+[node name="CometPath" type="Path2D" parent="."]
+position = Vector2( 0, 41 )
+scale = Vector2( 0.320278, 0.997093 )
+curve = SubResource( 1 )
+
+[node name="CometSpawnLocation" type="PathFollow2D" parent="CometPath"]
+position = Vector2( 477.772, 30.0138 )
+rotation = -0.000341299
+scale = Vector2( 0.876567, 0.999992 )
+offset = 3179.38
+lookahead = 10.0
+
+[node name="CometTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="CanvasLayer" parent="." instance=ExtResource( 5 )]
+
+[connection signal="timeout" from="CometTimer" to="." method="_on_CometTimer_timeout"]
+[connection signal="start_game" from="CanvasLayer" to="." method="_on_CanvasLayer_start_game"]
