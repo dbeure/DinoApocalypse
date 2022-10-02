@@ -5,12 +5,13 @@ var score : int = 0
 var speed : int = 200
 var jumpForce : int = 500
 var gravity : int = 800
+var body_entered : int = 0
 
 var vel : Vector2 = Vector2()
 
 onready var sprite : Sprite = get_node("MainPlayer")
+onready var glob_var = get_node("/root/Global")
 
-signal game_over
 
 func _physics_process(delta):
 	vel.x = 0
@@ -38,9 +39,23 @@ func _physics_process(delta):
 	#jump input (can't jump from in the air!)
 	if Input.is_action_pressed("jump") and is_on_floor():
 		vel.y-=jumpForce
+		
+	if self.position.y > 1000:
+		glob_var.game_over = true
+		
+	if self.position.x < -7120:
+		glob_var.win = true
 	
-	#var collision = move_and_collide(Vector2())
+	#var collision = move_and_collide((vel/2) * delta)
 	#if collision:
 	#	print("I collided with ", collision.collider.name)
-	#THIS ABOVE DOES NOT WORK BECAUSE ONLY ACTIVE COLLISIONS
+	#THIS ABOVE DOES NOT WORK BECAUSE ONLY ACTIVE COLLISIONS from the player
 
+
+func _on_Area2D_body_entered(_body):
+	#glob_var.game_over = true
+	body_entered += 1
+	print(body_entered)
+	if body_entered == 2:
+		print("Game Over")
+		glob_var.game_over = true

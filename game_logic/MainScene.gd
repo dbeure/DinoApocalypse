@@ -7,14 +7,19 @@ onready var glob_var = get_node("/root/Global")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
-	#$CanvasLayer.hide()
 
 
 func _on_CometTimer_timeout():
 	if glob_var.game_over == true:
 		self.hide()
+		$CometTimer.stop()
 		$CanvasLayer.show()
 		print(glob_var.game_over)
+		
+	if glob_var.win == true:
+		self.hide()
+		$CometTimer.stop()
+		$Win.show()
 	
 	var comet_spawn_location = $CometPath/CometSpawnLocation
 	comet_spawn_location.unit_offset = randf()
@@ -34,7 +39,13 @@ func _on_CometTimer_timeout():
 
 
 func _on_CanvasLayer_start_game():
+	print("Start game")
 	glob_var.game_over = false
 	$CanvasLayer.hide()
+	$Win.hide()
 	self.show()
+	$MainPlayer.position.x = 950
+	$MainPlayer.position.y = 160
+	$MainPlayer.body_entered = 0
+	$CometTimer.start()
 

@@ -6,10 +6,6 @@ export var max_speed = 250
 
 onready var glob_var = get_node("/root/Global")
 
-#func _ready():
-#	$AnimatedSprite.playing = true
-#	connect("body_entered",self, "on_RigidBody2D_body_entered")
-
 func _ready():
 	$AnimatedSprite.playing = true
 	connect("body_entered",self, "destroy")
@@ -17,9 +13,11 @@ func _ready():
 func destroy(body):
 	var collider = body.get_parent()
 	var nameOfCollider = collider.get_name()
+	print(nameOfCollider)
 	if nameOfCollider == "MainScene":
-		glob_var.game_over = true
-		queue_free()
+	#	glob_var.game_over = true
+	#	print("Game Over")
+		pass
 	else:
 		queue_free()
 
